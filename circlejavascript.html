@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circle Calculator</title>
+    <style>
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        button {
+            
+            border: none;
+            background-color: #007BFF;
+           
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <h2>Circle Calculator</h2>
+        <label for="radius">Radius:</label>
+        <input type="number" id="radius" name="radius">
+        <button type="button" onclick="calculate()">Calculate</button>
+    
+        <p id="area"></p>
+        <p id="circumference"></p>
+    </form>
+    <script>
+        function calculate() {
+            var radius = parseFloat(document.getElementById('radius').value);
+
+            var area = 3.14 * radius * radius;
+            var circumference = 2 * 3.14 * radius;
+
+            // Update the results in the form
+            document.getElementById('area').textContent = "Area of the circle: " + area.toFixed(2);
+            document.getElementById('circumference').textContent = "Circumference of the circle: " + circumference.toFixed(2);
+        }
+    </script>
+</body>
+</html>
