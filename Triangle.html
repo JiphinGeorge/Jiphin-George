@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>Triangle Side</title>
+    </head>
+    <style>
+        body{
+            background-color: grey;
+        }
+    </style>
+    <body>
+        <div align ="center">
+        <script>
+            let a = parseFloat(prompt("Enter the length of side A:"));
+            let b = parseFloat(prompt("Enter the length of side B:"));
+            let c = parseFloat(prompt("Enter the length of side C:"));
+
+        if (a + b > c && b + c > a && a + c > b) {
+                if (a == b && b == c) { 
+                    document.write("The given sides can form an Equilateral Triangle.<br><br>");
+                } else if (a == b || b == c || a == c) { 
+                    document.write("The given sides can form an Isosceles Triangle.<br><br>");
+                } else {
+                    document.write("The given sides can form a Scalene Triangle.<br><br>");
+                }
+                
+                let s = (a + b + c) / 2;
+                let area = Math.sqrt(s * (s - a) * (s - b) * (s - c));
+                document.write("The area of the triangle is: " + area + " square units.");
+              }
+              
+         else {
+                document.write("The given sides cannot form a triangle.");
+              }
+        </script>
+        </div>
+    </body>
+</html>
