@@ -1,0 +1,44 @@
+<html>   
+<head>
+    <title>
+        Number Classification
+    </title>
+    <style>
+         button {  
+            border:none;
+            background-color: #39b420; 
+        }
+        button:hover {
+            background-color: #f013ae;
+        }
+
+    </style>
+</head>
+<body ><center>
+
+    <h1 align = "center"><u> Perfect , Abundant or Deficient </u></h1>
+    <br><br>
+    Enter a number:
+    <input type="text" id="num" /><br><br>
+    <button type="button" onclick="findNum()">Calculate</button>
+    <script>
+        function findNum() {
+            var n = document.getElementById('num').value;
+            var sum = 0;
+            for (var i = 0; i < n; i++) {
+                if (n % i == 0) {
+                    sum = sum + i;
+                }
+            }
+            if (sum == n)
+                alert("The number is perfect ");
+            else if (sum > n)
+                alert("The number is abundant");
+            else
+                alert("The number is deficient");
+        }
+    </script>
+</center>
+</body>
+
+</html>
