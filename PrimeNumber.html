@@ -13,7 +13,7 @@
             background-color: #420707;
         }
         center {
-            background-color: #1734d8;
+            background-color: #00865a;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(23, 174, 201, 0.973);
@@ -48,14 +48,13 @@
     <script>
         // Function to check if a number is prime
         function isPrime(num) {
-            if (num < 2) return false;
-            if (num === 2) return true; // 2 is the only even prime number
-            if (num % 2 === 0) return false; // Other even numbers are not prime
-            for (let i = 3; i * i <= num; i += 2) {
-                if (num % i === 0) return false;
-            }
-            return true;
-        }
+    if (num < 2) return false;
+    for (let i = 2; i * i<= num; i++) {
+        if (num % i === 0) return false;
+    }
+    return true;
+    }
+
 
         // Function to find the nth prime number
         function findNthPrime(n) {
