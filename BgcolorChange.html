@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Color Changer</title>
+    <style>
+        body, html {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(229, 199, 153); 
+            transition: background 1s ease; 
+
+        input[type="button"] {
+            background-color: #ffffff; 
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px; 
+            margin: 5px; 
+            font-size: 16px; 
+            cursor:pointer; 
+            transition: background-color 0.3s ease, transform 0.3s ease; 
+        }
+
+        input[type="button"]:hover {
+            background-color: #c5b9c5; 
+            transform: scale(1.5); 
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" onmouseover="changeBg(0)" value="Red">
+    <input type="button" onmouseover="changeBg(1)" value="Yellow">
+    <input type="button" onmouseover="changeBg(2)" value="Blue">
+    <input type="button" onmouseover="changeBg(3)" value="Green">
+    <input type="button" onmouseover="changeBg(4)" value="Orange">
+
+    <script>
+        function changeBg(i) {
+            const colors = ["red", "yellow", "blue", "green", "orange"];
+            document.body.style.backgroundColor = colors[i];
+        }
+    </script>
+</body>
+
+</html>
