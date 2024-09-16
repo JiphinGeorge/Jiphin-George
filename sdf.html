@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Numbers</title>
+</head>
+<body>
+    <h1>Find Prime Numbers</h1>
+    <script>
+        // Function to check if a number is prime
+        function isPrime(num) {
+            if (num <= 1) return false; // 0 and 1 are not prime numbers
+            if (num <= 3) return true; // 2 and 3 are prime numbers
+            if (num % 2 === 0 || num % 3 === 0) return false; // Eliminate multiples of 2 and 3
+
+            for (let i = 5; i * i <= num; i += 6) { // Check divisibility from 5 onwards
+                if (num % i === 0 || num % (i + 2) === 0) return false;
+            }
+
+            return true;
+        }
+
+        // Function to display prime numbers up to a given limit
+        function displayPrimes(limit) {
+            if (isNaN(limit) || limit <= 0) {
+                document.write("Please enter a positive number.");
+                return;
+            }
+
+            document.write("<h2>Prime Numbers up to " + limit + ":</h2>");
+            document.write("<ul>");
+            
+            for (let num = 2; num <= limit; num++) {
+                if (isPrime(num)) {
+                    document.write("<li>" + num + "</li>");
+                }
+            }
+
+            document.write("</ul>");
+        }
+
+        // Prompt user for input and display primes
+        let n = parseInt(prompt("Enter the upper limit to find prime numbers: "), 10);
+        displayPrimes(n);
+    </script>
+</body>
+</html>
