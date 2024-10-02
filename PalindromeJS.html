@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrome Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e9ecef;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: rgb(99, 117, 19);
+            padding: 40px;
+            border-radius: 100px;
+            box-shadow: 0 4px 8px rgba(57, 224, 171, 0.1);
+            text-align: center;
+            width: 400px;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 100%;
+            margin: 10px 0;
+            border: 1px solid #eeeeee;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: rgb(5, 1, 7);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #31e0e0;
+        }
+        #message {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Palindrome Checker</h2>
+        <input type="text" id="inputString" placeholder="Enter a string" />
+        <button onclick="checkPalindrome()">Check</button>
+        <div id="message"></div>
+    </div>
+
+    <script>
+        function checkPalindrome() {
+            const inputString = document.getElementById('inputString').value;
+            const message = document.getElementById('message');
+
+            // Remove any non-alphanumeric characters and convert to lowercase
+            const cleanString = inputString.replace(/[^A-Za-z0-9]/g, '').toLowerCase();
+
+            // Reverse the cleaned string
+            const reversedString = cleanString.split('').reverse().join('');
+
+            // Check if the original string matches the reversed one
+            if (cleanString === reversedString) {
+                message.textContent = `"${inputString}" is a palindrome!`;
+                message.style.color = 'green';
+            } else {
+                message.textContent = `"${inputString}" is not a palindrome.`;
+                message.style.color = 'red';
+            }
+        }
+    </script>
+
+</body>
+</html>

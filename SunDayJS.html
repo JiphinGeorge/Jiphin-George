@@ -1,0 +1,76 @@
+<html>
+<head>
+    <title>Find Sundays on January 1st</title>
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif; 
+            margin: 40px; 
+        }
+
+        
+        input[type="number"] {
+            padding: 10px; 
+            width: 80px; 
+            font-size: 16px; 
+            margin-right: 10px; 
+        }
+
+        button {
+            padding: 10px 15px; 
+            font-size: 16px; 
+            cursor: pointer;
+        }
+        #results {
+            margin-top: 20px; 
+            font-weight: bold; 
+        }
+    </style>
+</head>
+<body>
+    <h2>Find Years When January 1st is a Sunday</h2>
+    <label for="startYear">Start Year:</label>
+    <input type="number" id="startYear" placeholder="e.g., 2000">
+    <label for="endYear">End Year:</label>
+    <input type="number" id="endYear" placeholder="e.g., 2025">
+    <button onclick="findSundays()">Find Sundays</button>
+    <div id="results"></div>
+    <script>
+        // Function to find and display all years when January 1st is a Sunday
+        function findSundays() {
+            // Get the start and end years from input fields
+            const startYear = parseInt(document.getElementById('startYear').value);
+            const endYear = parseInt(document.getElementById('endYear').value);
+            const resultsDiv = document.getElementById('results'); // Get the results div
+
+            // Reset the results to avoid displaying old results
+            resultsDiv.innerHTML = '';
+
+            // Validate the input years
+            if (isNaN(startYear) || isNaN(endYear) || startYear > endYear) {
+                resultsDiv.innerHTML = 'Please enter a valid range of years.'; // Show error message if input is invalid
+                return; // Exit the function
+            }
+
+            const sundays = []; // Array to hold years where January 1st is a Sunday
+
+            // Loop through the range of years from startYear to endYear
+            for (let year = startYear; year <= endYear; year++) {
+                const date = new Date(year, 0, 1); // Create a Date object for January 1st of the current year
+                if (date.getDay() === 0) { // Check if the day of the week is Sunday (0 represents Sunday)
+                    sundays.push(year); // Add the year to the sundays array
+                }
+            }
+
+            // Display the results
+            if (sundays.length > 0) {
+                // Show the years when January 1st is a Sunday
+                resultsDiv.innerHTML = 'January 1st is a Sunday in the following years: ' + sundays.join(', ');
+            } else {
+                resultsDiv.innerHTML = 'No Sundays on January 1st found in this range.'; // Show message if no Sundays found
+            }
+        }
+    </script>
+
+</body>
+</html>

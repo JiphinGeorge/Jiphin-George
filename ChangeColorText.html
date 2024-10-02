@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TextBox Color Change on Focus/Blur</title>
+    <style>
+        /* Internal CSS for styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            height: 100vh; /* Full height of the viewport */
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            background-color: #f0f0f0; /* Light background for contrast */
+        }
+
+        /* Styling for the input text box */
+        input[type="text"] {
+            padding: 10px;
+            width: 300px;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Margin for the heading */
+        h2 {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <!-- Heading and TextBox -->
+        <h2>Change TextBox Color on Focus and Blur</h2>
+        <input type="text" id="myTextbox" 
+               placeholder="Focus on me!" 
+               onfocus="changeColorOnFocus()" 
+               onblur="resetColorOnBlur()">
+    </div>
+
+    <script>
+        // Change the text and background color when the input is focused
+        function changeColorOnFocus() {
+            const textbox = document.getElementById('myTextbox');
+            textbox.style.color = "white"; 
+            textbox.style.backgroundColor = "grey";
+        }
+        function resetColorOnBlur() {
+            const textbox = document.getElementById('myTextbox');
+            textbox.style.color = "green"; 
+            textbox.style.backgroundColor = "black"; 
+        } 
+    </script>
+</body>
+</html>
+       

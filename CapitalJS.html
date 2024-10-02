@@ -1,0 +1,64 @@
+<html>
+<head>
+    <title>Country Capital Display</title>
+    <style>
+        body {
+           
+            margin: 40px;
+        }
+
+        select {
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        input[type="text"] {
+            background-color:rgb(208, 215, 222);
+            color: rgb(6, 36, 36);
+            padding: 10px;
+            width: 300px;
+            font-size: 16px;
+            margin-top: 20px;
+            border: 2px solid #000000;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body><center>
+    <h2>Select a Country to Display its Capital</h2>
+    <select id="countrySelect" onchange="displayCapital()">
+        <option value="">Select a country</option>
+        <option value="India">India</option>
+        <option value="USA">USA</option>
+        <option value="Germany">Germany</option>
+        <option value="Canada">Canada</option>
+        <option value="Australia">Australia</option>
+    </select>
+    <input type="text" id="capitalTextbox" placeholder="Capital will be displayed here" disabled>
+
+    <script>
+        function displayCapital() {
+            const countrySelect = document.getElementById('countrySelect');
+            const selectedCountry = countrySelect.value;
+            const capitalTextbox = document.getElementById('capitalTextbox');
+
+            // Dictionary to hold countries and their capitals
+            const capitals = {
+                "India": "New Delhi",
+                "USA": "Washington, D.C.",
+                "Germany": "Berlin",
+                "Canada": "Ottawa",
+                "Australia": "Canberra"
+            };
+
+            // Set the corresponding capital in the text box or clear it if no country is selected
+            if (selectedCountry) {
+                capitalTextbox.value = capitals[selectedCountry]; // Display the capital
+            } else {
+                capitalTextbox.value = ""; // Clear the text box
+            }
+        }
+    </script>
+</center>
+</body>
+</html>
